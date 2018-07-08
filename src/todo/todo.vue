@@ -16,6 +16,7 @@
       :filter="filter"
       :todos='todos'
       @toggle='toggleFilter'
+      @clearAll='clearAll'
     />
   </section>
 </template>
@@ -45,6 +46,9 @@
       },
       toggleFilter(filter){
         this.filter = filter
+      },
+      clearAllCompleted(){
+        this.todos = this.todos.filter(todo=>todo.completed != true)
       }
     },
     computed:{
